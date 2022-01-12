@@ -62,7 +62,7 @@ public class EmployeeController {
 	@ApiOperation("Used to fetch bugs by status(BY EMPLOYEE)")
 	@GetMapping("/employees/bystatus/{bugStatus}")
 	public List<Bug> bugsbystatus(@PathVariable("bugStatus") String bugStatus) {
-		String endpoint = "http://localhost:8054/bugs/bystatus/" + bugStatus;
+		String endpoint = "http://localhost:8055/bugs/bystatus/" + bugStatus;
 		List<Bug> m = Arrays.asList(rt.getForObject(endpoint, Bug[].class));
 		return m;
 	}
@@ -70,7 +70,7 @@ public class EmployeeController {
 	@ApiOperation("Used to create bug(BY EMPLOYEE)")
 	@PostMapping("/employee/bugs")
 	public String createBug(@Valid @RequestBody Bug b) {
-		String endpoint = "http://localhost:8054/bugs/";
+		String endpoint = "http://localhost:8055/bugs/";
 		rt.postForLocation(endpoint, b);
 		return "created successfully";
 	}
